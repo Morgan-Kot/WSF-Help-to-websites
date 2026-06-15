@@ -1,4 +1,4 @@
-/* Styling Version: v.6 | REMOVED_VIDEO_BACKGROUNDS */
+/* Styling Version: v.7 | MOBILE_RESPONSIVE_SCALING_FIX */
 
 :root {
     --bg-color: #f4f4f4;
@@ -25,7 +25,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* FIX: Changed height to min-height and added padding for small screens */
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
     margin: 0;
     transition: all 0.3s ease;
 }
@@ -71,6 +74,28 @@ body {
     width: 100%;
     max-width: 600px;
     text-align: center;
+    /* FIX: Added box-sizing to ensure padding doesn't break mobile boundaries */
+    box-sizing: border-box;
+}
+
+/* FIX: Media query to handle layout adjustments on smaller phone displays */
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px;
+    }
+    .controls {
+        position: relative;
+        top: 0;
+        right: 0;
+        justify-content: center;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    body {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 20px;
+    }
 }
 
 #progress-container {
@@ -138,7 +163,8 @@ button:active {
 .tags-box {
     margin-top: 20px;
     padding: 10px;
-    width: 90%;
+    width: 100%; /* FIX: Changed from 90% to 100% with box-sizing to cleanly align with inputs */
+    box-sizing: border-box;
     background: var(--bg-color);
     color: var(--text-color);
     border: 1px solid #ccc;
