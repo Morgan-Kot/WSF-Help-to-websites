@@ -1,0 +1,147 @@
+/* Styling Version: v.6 | REMOVED_VIDEO_BACKGROUNDS */
+
+:root {
+    --bg-color: #f4f4f4;
+    --container-bg: #ffffff;
+    --text-color: #333333;
+    --button-bg: #007BFF;
+    --button-hover: #0056b3;
+    --progress-bg: #e0e0e0;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --container-bg: #131313;
+    --text-color: #f4f4f4;
+    --button-bg: #268b0da1;
+    --button-hover: #0e750a8f;
+    --progress-bg: #333333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+#btn-show-ui {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 1px solid white;
+}
+
+/* Aligns the widget inline next to the switch button */
+.controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 100;
+}
+
+#gtranslate_wrapper select {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: var(--button-bg);
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.container {
+    background: var(--container-bg);
+    padding: 50px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+#progress-container {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+#progress-text {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+#progress-bar-wrapper {
+    width: 100%;
+    height: 6px;
+    background-color: var(--progress-bg);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+#progress-bar-fill {
+    width: 0%;
+    height: 100%;
+    background-color: var(--button-bg);
+    transition: width 0.25s ease-out;
+}
+
+.question-box {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    line-height: 1.5;
+}
+
+button {
+    transition: all 0.192s ease;
+}
+
+button, select {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--button-bg);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.21) rotate(1.6deg);
+}
+
+button:active {
+    transform: scale(0.79) rotate(-3deg);
+}
+
+.tags-box {
+    margin-top: 20px;
+    padding: 10px;
+    width: 90%;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: monospace;
+}

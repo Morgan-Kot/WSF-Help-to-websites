@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Style Questionnaire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+
+<button id="btn-show-ui" onclick="toggleUI(true)">Show UI</button>
+
+<div class="controls" id="theme-controls">
+    <button onclick="toggleTheme()">Toggle Dark/Light</button>
+    <div id="gtranslate_wrapper"></div>
+</div>
+
+<div class="container" id="app">
+    <div id="progress-container">
+        <div id="progress-text">Question 1 of 25</div>
+        <div id="progress-bar-wrapper">
+            <div id="progress-bar-fill"></div>
+        </div>
+    </div>
+
+    <div id="question-screen">
+        <h2 id="question-heading">Loading...</h2>
+        <p id="question-text" style="font-size: 1.1em; line-height: 1.6; margin-bottom: 30px;">Please wait...</p>
+        <div class="question-box">
+            <button id="btn-yes" onclick="answer(true)">Yes</button>
+            <button id="btn-no" onclick="answer(false)">No</button>
+            <button id="btn-skip" onclick="skip()" style="background-color: #e67e22;">Skip</button>
+        </div>
+        <button id="btn-back" onclick="undo()" style="display: none; background-color: #6c757d; font-size: 14px; margin-top: 15px;">← Back to Previous Question</button>
+    </div>
+
+    <div id="result-screen" style="display: none;">
+        <h2 id="result-header">Your ideal website style is:</h2>
+        <h1 id="result-title"></h1>
+        <h3 id="result-alt" style="color: #888; font-weight: normal; margin-top: -10px;"></h3>
+        <p id="result-desc">Based on your answers, this will give you the best value.</p>
+        
+        <div style="margin-top: 20px; margin-bottom: 20px;">
+            <button onclick="toggleUI(false)" style="background-color: #28a745;">Hide UI</button>
+        </div>
+
+        <button id="btn-restart" onclick="location.reload()">Start Over</button>
+        
+        <div style="margin-top: 30px;">
+            <p style="font-size: 12px; margin-bottom: 5px;">Creator Data Tags (Copy below):</p>
+            <input type="text" id="creator-tags" class="tags-box" readonly onclick="this.select()">
+        </div>
+
+        <div class="email-section" style="margin-top: 30px; text-align: left; padding: 20px; background-color: var(--progress-bg); border-radius: 8px;">
+            <h3 style="margin-top: 0; margin-bottom: 5px;">Send Results to Developer</h3>
+            <p style="font-size: 13px; margin-bottom: 15px; line-height: 1.5;">Please fill out this form, click the button below to download your result file, and send that file to: <strong>accforcode0@gmail.com</strong></p>
+            
+            <label style="font-size: 14px; font-weight: bold;">Name:</label>
+            <input type="text" id="client-name" style="width: 100%; padding: 10px; margin: 5px 0 15px 0; border: none; border-radius: 4px; box-sizing: border-box;" placeholder="John Doe">
+            
+            <label style="font-size: 14px; font-weight: bold;">Contact Info:</label>
+            <input type="text" id="client-contact" style="width: 100%; padding: 10px; margin: 5px 0 15px 0; border: none; border-radius: 4px; box-sizing: border-box;" placeholder="Email or Phone Number">
+            
+            <label style="font-size: 14px; font-weight: bold;">Budget (Optional):</label>
+            <input type="text" id="client-budget" style="width: 100%; padding: 10px; margin: 5px 0 15px 0; border: none; border-radius: 4px; box-sizing: border-box;" placeholder="e.g., $1000">
+
+            <label style="font-size: 14px; font-weight: bold;">Current Website (Optional):</label>
+            <input type="text" id="client-website" style="width: 100%; padding: 10px; margin: 5px 0 15px 0; border: none; border-radius: 4px; box-sizing: border-box;" placeholder="example.com">
+
+            <label style="font-size: 14px; font-weight: bold;">Additional Note (Optional):</label>
+            <textarea id="client-note" style="width: 100%; padding: 10px; margin: 5px 0 15px 0; height: 80px; border: none; border-radius: 4px; box-sizing: border-box; font-family: inherit;" placeholder="Any extra details you want to share..."></textarea>
+            
+            <button onclick="downloadClientFile()" style="background-color: #e67e22; width: 100%; margin: 0;">Download Text File</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    var gtranslateSettings = {
+        "default_language": "en",
+        "languages": ["en", "es", "de", "da"],
+        "wrapper_selector": "#gtranslate_wrapper",
+        "select_language_style": "dropdown"
+    };
+</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/dwf.js" defer></script>
+
+<script src="categories.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
