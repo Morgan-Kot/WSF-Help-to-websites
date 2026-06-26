@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibration API Example</title>
+</head>
+<body>
+
+    <button onclick="singleVibration()">Single Buzz</button>
+    <button onclick="patternVibration()">SOS Pattern</button>
+    <button onclick="stopVibration()">Stop</button>
+
+    <script>
+        // 1. Single short vibration
+        function singleVibration() {
+            if ("vibrate" in navigator) {
+                // Vibrates for 300 milliseconds
+                navigator.vibrate(300); 
+            } else {
+                alert("Vibration API is not supported on this browser/device.");
+            }
+        }
+
+        // 2. Complex vibration pattern (SOS Morse Code)
+        function patternVibration() {
+            if ("vibrate" in navigator) {
+                // Even indexes = vibrate time (ms)
+                // Odd indexes = pause time (ms)
+                navigator.vibrate([100, 100, 100, 100, 100, 300, 300, 100, 300, 100, 300, 300, 100, 100, 100, 100, 100]);
+            }
+        }
+
+        // 3. Cancel any ongoing vibration immediately
+        function stopVibration() {
+            if ("vibrate" in navigator) {
+                navigator.vibrate(0); 
+            }
+        }
+    </script>
+
+</body>
+</html>
